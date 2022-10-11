@@ -24,7 +24,7 @@ namespace WebShopApi.Controllers
 
         // GET api/<StudentsController>/5
         [HttpGet("{id}")]
-        public ActionResult<Student> Get(string id)
+        public ActionResult<Student> Get(Guid id)
         {
             var student = studentService.Get(id);
 
@@ -47,7 +47,7 @@ namespace WebShopApi.Controllers
 
         // PUT api/<StudentsController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] Student student)
+        public ActionResult Put(Guid id, [FromBody] Student student)
         {
             var existingStudent = studentService.Get(id);
 
@@ -63,7 +63,7 @@ namespace WebShopApi.Controllers
 
         // DELETE api/<StudentsController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(string id)
+        public ActionResult Delete(Guid id)
         {
             var student = studentService.Get(id);
 

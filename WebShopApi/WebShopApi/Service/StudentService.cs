@@ -6,10 +6,10 @@ namespace WebShopApi.Service
     public interface IStudentService
     {
         List<Student> Get();
-        Student Get(string id);
+        Student Get(Guid id);
         Student Create(Student student);
-        void Update(string id, Student student);
-        void Remove(string id);
+        void Update(Guid id, Student student);
+        void Remove(Guid id);
     }
     public class StudentService : IStudentService
     {
@@ -32,17 +32,17 @@ namespace WebShopApi.Service
             return _students.Find(student => true).ToList();
         }
 
-        public Student Get(string id)
+        public Student Get(Guid id)
         {
             return _students.Find(student => student.Id == id).FirstOrDefault();
         }
 
-        public void Remove(string id)
+        public void Remove(Guid id)
         {
             _students.DeleteOne(student => student.Id == id);
         }
 
-        public void Update(string id, Student student)
+        public void Update(Guid id, Student student)
         {
             _students.ReplaceOne(student => student.Id == id, student);
         }
