@@ -6,7 +6,7 @@ namespace WebShopApi.Models
     [BsonIgnoreExtraElements]
     public class Student
     {
-        public string Id { get; set; } = String.Empty;
+        public Guid Id { get; set; }
 
         [BsonElement("name")]
         public string Name { get; set; } = String.Empty;
@@ -15,7 +15,7 @@ namespace WebShopApi.Models
         public bool IsGraduated { get; set; }
 
         [BsonElement("courses")]
-        public string[]? Courses { get; set; }
+        public List<string> Courses { get; set; }
 
         [BsonElement("gender")]
         public string Gender { get; set; } = String.Empty;
